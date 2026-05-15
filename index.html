@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Pranjal Mitra | Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <!-- AOS -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+  <!-- Matrix Background -->
+  <canvas id="matrix"></canvas>
+
+  <!-- Cursor -->
+  <div class="cursor"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+
+    <div class="logo">Pranjal.</div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+      <button id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <button id="musicToggle">
+        <i class="fa-solid fa-music"></i>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+
+    <div class="hero-left">
+
+      <h3>Hello, I'm</h3>
+
+      <h1>Pranjal Mitra</h1>
+
+      <h2>
+        <span class="typing"></span>
+      </h2>
+
+      <p>
+        BTech CSE '29 student passionate about software development,
+        AI, modern web technologies, and building impactful digital experiences.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="assets/resume.pdf" class="btn" download>
+          Download Resume
+        </a>
+
+        <a href="#contact" class="btn-outline">
+          Contact Me
+        </a>
+      </div>
+
+      <div class="socials">
+
+        <a href="https://www.linkedin.com/in/pranjal-mitra-9254bb372">
+          <i class="fab fa-linkedin"></i>
+        </a>
+
+        <a href="https://github.com/pranjalmitra123-star">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <a href="https://instagram.com/pranjal._.mitra">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+
+      <div class="glass-card">
+        <img src="assets/profile.png" alt="Profile Image"/>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-card">
+
+      <p>
+        I'm a passionate aspiring software engineer currently pursuing BTech CSE at MRIIRS Faridabad.
+      </p>
+
+      <p>
+        I enjoy creating modern websites, exploring AI technologies,
+        and building innovative tech projects.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <i class="fab fa-html5"></i>
+        <h3>HTML</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fab fa-css3-alt"></i>
+        <h3>CSS</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fab fa-js"></i>
+        <h3>JavaScript</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fab fa-python"></i>
+        <h3>Python</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-code"></i>
+        <h3>C/C++</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+
+        <img src="assets/project1.png" alt="Project">
+
+        <div class="project-content">
+
+          <h3>Bluetooth RC Car</h3>
+
+          <p>
+            Arduino-based Bluetooth controlled smart RC car project.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="assets/project2.png" alt="Project">
+
+        <div class="project-content">
+
+          <h3>Shadow Sensor using Pi Pico</h3>
+
+          <p>
+            Smart sensor project using Raspberry Pi Pico and embedded programming.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+
+    <h2 class="section-title">Contact Me</h2>
+
+    <form id="contactForm">
+
+      <input type="text" placeholder="Your Name" required>
+
+      <input type="email" placeholder="Your Email" required>
+
+      <textarea placeholder="Your Message"></textarea>
+
+      <button type="submit" class="btn">
+        Send Message
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+
+    <p>
+      © 2026 Pranjal Mitra | All Rights Reserved
+    </p>
+
+  </footer>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="assets/bgmusic.mp3">
+  </audio>
+
+  <!-- Typed JS -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
