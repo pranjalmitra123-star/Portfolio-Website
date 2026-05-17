@@ -222,17 +222,31 @@
 
     <form id="contactForm">
 
-      <input type="text" placeholder="Your Name" required>
+  <input 
+    type="text" 
+    name="name"
+    placeholder="Your Name" 
+    required
+  >
 
-      <input type="email" placeholder="Your Email" required>
+  <input 
+    type="email"
+    name="email"
+    placeholder="Your Email" 
+    required
+  >
 
-      <textarea placeholder="Your Message"></textarea>
+  <textarea 
+    name="message"
+    placeholder="Your Message"
+    required
+  ></textarea>
 
-      <button type="submit" class="btn">
-        Send Message
-      </button>
+  <button type="submit" class="btn">
+    Send Message
+  </button>
 
-    </form>
+</form>
 
   </section>
 
@@ -256,8 +270,11 @@
   <!-- AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- JS -->
+<script src="script.js"></script>
 
 </body>
 </html>
