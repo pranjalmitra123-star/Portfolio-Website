@@ -11,49 +11,88 @@ new Typed(".typing", {
   loop: true
 });
 
-// AOS
+// AOS Animation
 AOS.init();
 
 // Cursor Glow
 const cursor = document.querySelector(".cursor");
 
 document.addEventListener("mousemove", (e) => {
+
   cursor.style.top = e.clientY + "px";
   cursor.style.left = e.clientX + "px";
+
 });
 
 // Theme Toggle
 const themeToggle = document.getElementById("themeToggle");
 
 themeToggle.addEventListener("click", () => {
+
   document.body.classList.toggle("light");
+
 });
 
-// Music Toggle
+// Background Music Toggle
 const music = document.getElementById("bgMusic");
 
 document.getElementById("musicToggle")
 .addEventListener("click", () => {
 
-  if(music.paused){
+  if (music.paused) {
+
     music.play();
-  }else{
+
+  } else {
+
     music.pause();
+
   }
 
 });
 
-// Contact Form
+// ==============================
+// EMAILJS CONTACT FORM
+// ==============================
+
+// Initialize EmailJS
+emailjs.init("ZJFhV9kSm5LVQO1wg");
+
+// Contact Form Submit
 document.getElementById("contactForm")
-.addEventListener("submit", (e) => {
+.addEventListener("submit", function(e) {
 
   e.preventDefault();
 
-  alert("Message Sent Successfully!");
+  emailjs.sendForm(
+    "service_5g15su6",
+    "template_lg458x8",
+    this
+  )
+
+  .then(() => {
+
+    alert("Message Sent Successfully!");
+
+    // Reset form after sending
+    document.getElementById("contactForm").reset();
+
+  })
+
+  .catch((error) => {
+
+    alert("Failed to send message!");
+
+    console.log("EmailJS Error:", error);
+
+  });
 
 });
 
+// ==============================
 // MATRIX EFFECT
+// ==============================
+
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
@@ -68,33 +107,42 @@ const columns = canvas.width / fontSize;
 
 const drops = [];
 
-for(let i = 0; i < columns; i++){
+for (let i = 0; i < columns; i++) {
+
   drops[i] = 1;
+
 }
 
-function draw(){
+function draw() {
 
   ctx.fillStyle = "rgba(0,0,0,0.05)";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "#0f0";
   ctx.font = fontSize + "px monospace";
 
-  for(let i = 0; i < drops.length; i++){
+  for (let i = 0; i < drops.length; i++) {
 
-    const text = matrix[Math.floor(Math.random()*matrix.length)];
+    const text = matrix[Math.floor(Math.random() * matrix.length)];
 
-    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-    if(drops[i]*fontSize > canvas.height && Math.random() > 0.975){
+    if (
+      drops[i] * fontSize > canvas.height &&
+      Math.random() > 0.975
+    ) {
+
       drops[i] = 0;
+
     }
 
     drops[i]++;
+
   }
+
 }
 
-setInterval(draw,35);
+setInterval(draw, 35);
 
 // Resize Fix
 window.addEventListener("resize", () => {
