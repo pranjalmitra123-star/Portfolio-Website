@@ -105,10 +105,9 @@ function sendMessage(){
 
   input.value = "";
 
-  chatBox.scrollTop =
-  chatBox.scrollHeight;
+ chatBox.scrollTop =
+chatBox.scrollHeight;
 
-}
 }
 // Background Music Toggle
 const music = document.getElementById("bgMusic");
