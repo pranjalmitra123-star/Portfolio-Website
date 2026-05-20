@@ -32,7 +32,80 @@ themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
 
 });
+// GEMINI AI CHATBOT
 
+async function sendMessage(){
+
+  const input = document.getElementById("userInput");
+
+  const message = input.value;
+
+  if(message.trim() === "") return;
+
+  const chatBox = document.getElementById("chatBox");
+
+  // USER MESSAGE
+
+  chatBox.innerHTML += `
+    <div class="user-message">
+      ${message}
+    </div>
+  `;
+
+  input.value = "";
+
+  // API REQUEST
+
+  const response = await fetch(
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY",
+    {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+
+      body:JSON.stringify({
+
+        contents:[
+          {
+            parts:[
+              {
+                text:
+                `
+                You are Pranjal Mitra's portfolio assistant.
+
+                About Pranjal:
+                - BTech CSE Student
+                - Skills: HTML, CSS, JS, Python, C++
+                - Projects: Arduino RC Car, Shadow Sensor
+                - Future Software Engineer
+
+                User Question:
+                ${message}
+                `
+              }
+            ]
+          }
+        ]
+
+      })
+
+    }
+  );
+
+  const data = await response.json();
+
+  const botReply =
+    data.candidates[0].content.parts[0].text;
+
+  chatBox.innerHTML += `
+    <div class="bot-message">
+      ${botReply}
+    </div>
+  `;
+
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
 // Background Music Toggle
 const music = document.getElementById("bgMusic");
 
