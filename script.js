@@ -261,3 +261,24 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
 
 });
+const chatToggle =
+document.getElementById("chatToggle");
+
+const chatbot =
+document.querySelector(".chatbot-container");
+
+chatToggle.addEventListener("click",()=>{
+
+  if(chatbot.style.display === "flex"){
+
+    chatbot.style.display = "none";
+
+  }
+
+  else{
+
+    chatbot.style.display = "flex";
+
+  }
+
+});
