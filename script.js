@@ -34,113 +34,81 @@ themeToggle.addEventListener("click", () => {
 });
 // GEMINI AI CHATBOT
 
-async function sendMessage() {
+function sendMessage(){
 
-  const input = document.getElementById("userInput");
+  const input =
+  document.getElementById("userInput");
 
-  const message = input.value.trim();
+  const message =
+  input.value.toLowerCase();
 
-  if (!message) return;
+  if(message.trim() === "") return;
 
-  const chatBox = document.getElementById("chatBox");
+  const chatBox =
+  document.getElementById("chatBox");
 
   // USER MESSAGE
+
   chatBox.innerHTML += `
     <div class="user-message">
       ${message}
     </div>
   `;
 
+  let botReply =
+  "Sorry, I don't understand.";
+
+  // PREDEFINED REPLIES
+
+  if(message.includes("who")){
+
+    botReply =
+    "Pranjal Mitra is a BTech CSE student passionate about software development, AI, and modern web technologies.";
+
+  }
+
+  else if(message.includes("skills")){
+
+    botReply =
+    "Skills include HTML, CSS, JavaScript, Python, C/C++, GitHub, and frontend development.";
+
+  }
+
+  else if(message.includes("project")){
+
+    botReply =
+    "Projects include an Arduino Bluetooth RC Car and Shadow Sensor using Raspberry Pi Pico.";
+
+  }
+
+  else if(message.includes("contact")){
+
+    botReply =
+    "You can contact Pranjal through LinkedIn, Instagram, or Email from the contact section.";
+
+  }
+
+  else if(message.includes("resume")){
+
+    botReply =
+    "You can download Pranjal's resume using the Download Resume button.";
+
+  }
+
+  // BOT MESSAGE
+
+  chatBox.innerHTML += `
+    <div class="bot-message">
+      ${botReply}
+    </div>
+  `;
+
   input.value = "";
 
-  try {
+  chatBox.scrollTop =
+  chatBox.scrollHeight;
 
-    const response = await fetch(
-
-     "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyCqcAZQ3ByHyao9N_j54kjQ28POEKxb_eg",
-      {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-
-          contents: [
-            {
-              role: "user",
-
-              parts: [
-                {
-                  text: `
-                  You are Pranjal Mitra's AI portfolio assistant.
-
-                  About Pranjal:
-                  - BTech CSE Student
-                  - Skills: HTML, CSS, JavaScript, Python, C++
-                  - Projects: Arduino Bluetooth RC Car, Shadow Sensor using Pi Pico
-                  - Future Software Engineer
-
-                  User Question:
-                  ${message}
-                  `
-                }
-              ]
-            }
-          ]
-
-        })
-
-      }
-
-    );
-
-    const data = await response.json();
-
-    console.log("Gemini Response:", data);
-
-    let botReply = "AI is not responding.";
-
-    if (data.error) {
-
-      botReply = data.error.message;
-
-    }
-
-    else if (
-      data.candidates &&
-      data.candidates.length > 0
-    ) {
-
-      botReply =
-        data.candidates[0]
-        .content.parts[0].text;
-
-    }
-
-    chatBox.innerHTML += `
-      <div class="bot-message">
-        ${botReply}
-      </div>
-    `;
-
-  }
-
-  catch (error) {
-
-    console.error("Fetch Error:", error);
-
-    chatBox.innerHTML += `
-      <div class="bot-message">
-        Error connecting to AI.
-      </div>
-    `;
-
-  }
-
-  chatBox.scrollTop = chatBox.scrollHeight;
-
+}
 }
 // Background Music Toggle
 const music = document.getElementById("bgMusic");
