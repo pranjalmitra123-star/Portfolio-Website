@@ -32,83 +32,8 @@ themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
 
 });
-// GEMINI AI CHATBOT
 
-function sendMessage(){
 
-  const input =
-  document.getElementById("userInput");
-
-  const message =
-  input.value.toLowerCase();
-
-  if(message.trim() === "") return;
-
-  const chatBox =
-  document.getElementById("chatBox");
-
-  // USER MESSAGE
-
-  chatBox.innerHTML += `
-    <div class="user-message">
-      ${message}
-    </div>
-  `;
-
-  let botReply =
-  "Sorry, I don't understand.";
-
-  // PREDEFINED REPLIES
-
-  if(message.includes("who")){
-
-    botReply =
-    "Pranjal Mitra is a BTech CSE student passionate about software development, AI, and modern web technologies.";
-
-  }
-
-  else if(message.includes("skills")){
-
-    botReply =
-    "Skills include HTML, CSS, JavaScript, Python, C/C++, GitHub, and frontend development.";
-
-  }
-
-  else if(message.includes("project")){
-
-    botReply =
-    "Projects include an Arduino Bluetooth RC Car and Shadow Sensor using Raspberry Pi Pico.";
-
-  }
-
-  else if(message.includes("contact")){
-
-    botReply =
-    "You can contact Pranjal through LinkedIn, Instagram, or Email from the contact section.";
-
-  }
-
-  else if(message.includes("resume")){
-
-    botReply =
-    "You can download Pranjal's resume using the Download Resume button.";
-
-  }
-
-  // BOT MESSAGE
-
-  chatBox.innerHTML += `
-    <div class="bot-message">
-      ${botReply}
-    </div>
-  `;
-
-  input.value = "";
-
- chatBox.scrollTop =
-chatBox.scrollHeight;
-
-}
 // Background Music Toggle
 const music = document.getElementById("bgMusic");
 
@@ -225,26 +150,5 @@ window.addEventListener("resize", () => {
 
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-
-});
-const chatToggle =
-document.getElementById("chatToggle");
-
-const chatbot =
-document.querySelector(".chatbot-container");
-
-chatToggle.addEventListener("click",()=>{
-
-  if(chatbot.style.display === "flex"){
-
-    chatbot.style.display = "none";
-
-  }
-
-  else{
-
-    chatbot.style.display = "flex";
-
-  }
 
 });
