@@ -57,7 +57,7 @@ async function sendMessage(){
   // API REQUEST
 
   const response = await fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=YOUR_API_KEY",
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyCO_czwaJhSjvQz8gnZJCF7INPfZ0U5ZZY",
     {
       method:"POST",
       headers:{
