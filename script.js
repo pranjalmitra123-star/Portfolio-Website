@@ -95,9 +95,18 @@ async function sendMessage(){
 
   const data = await response.json();
 
-  const botReply =
-    data.candidates[0].content.parts[0].text;
+  let botReply = "AI is not responding.";
 
+if(
+  data.candidates &&
+  data.candidates.length > 0
+){
+
+  botReply =
+  data.candidates[0]
+  .content.parts[0].text;
+
+}
   chatBox.innerHTML += `
     <div class="bot-message">
       ${botReply}
